@@ -1,4 +1,4 @@
-from ..utils import DefaultParams, MockTimeSeriesParams
+from utils import DefaultParams, MockTimeSeriesParams
 import numpy as np
 import pandas as pd
 
@@ -14,8 +14,8 @@ def generate_timeseries(params: MockTimeSeriesParams, start_date=None):
     dates = [start_date + pd.Timedelta(days=i) for i in range(params.length)]
     values = np.full(params.length, params.base_value, dtype=float)
 
-    # params.trend_type = 
-    # params.fluctuation = 
+    params.trend_type = 'increasing'
+    params.fluctuation = 'high'
 
     # Apply trend
     if params.trend_type == 'increasing':

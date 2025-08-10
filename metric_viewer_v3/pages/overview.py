@@ -2,11 +2,24 @@ import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 import dash_daq as daq
-
+import plotly.express as px
+# from app import app  # Import the Dash app instance
+from data.mock_data import generate_timeseries
+from utils import DefaultParams, MockTimeSeriesParams
+import numpy as np
+import pandas as pd
 # /D:/Data Science/VS Projects/Python Dashboard Metric Viewer/metric_viewer_v3/pages/overview.py
 
 
 dash.register_page(__name__, path="/", title="Overview")
+
+def timeseries_plot():
+    df = pd.DataFrame(generate_timeseries(MockTimeSeriesParams()))
+    df.columns = ['date', 'value']
+    df['date'] = pd.to_datetime(df['date'])
+    df.set_index('date', inplace=True)
+    fig = px.line(df)
+    return fig
 
 layout = html.Div(
     [
@@ -49,7 +62,7 @@ layout = html.Div(
                         label="Timeseries Plot",
                         tab_id="tab-1",
                         children=[
-                            dcc.Graph(id="overview-figure"),
+                            dcc.Graph(id="overview-figure",figure=timeseries_plot()),
                         ],
                     ),
                     

@@ -3,8 +3,9 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.title = "Business Metric Viewer"
-from metric_viewer_v3.pages.overview import layout as overview_layout
-from metric_viewer_v3.pages.insights import layout as insights_layout
+from pages.overview import layout as overview_layout
+from pages.insights import layout as insights_layout
+
 # server = app.server
 
 # Navigation bar
