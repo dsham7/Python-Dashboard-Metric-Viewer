@@ -1,29 +1,30 @@
 import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
-
-# Placeholder figures for demonstration
+from callbacks import insights_callbacks
 import plotly.graph_objs as go
+from callbacks import insights_callbacks
 dash.register_page(__name__, path="/insights", title="Insights")
 # Dummy figures
 fig_timeframe_corr = go.Figure()
 fig_timeseries_corr = go.Figure()
 fig_forecast = go.Figure()
 
-# Dropdown options (replace with your actual options)
+# Dropdown dummy options
 timeseries_options = [
     {"label": "Series A", "value": "A"},
     {"label": "Series B", "value": "B"},
 ]
 timeframe_options = [
-    {"label": "Last 7 Days", "value": "7d"},
-    {"label": "Last 30 Days", "value": "30d"},
+    {"label": "Last 28 days", "value": "28d"},
+    {"label": "Last 56 days", "value": "56d"},
 ]
 
 layout = dbc.Container(
     [
         dbc.Row(
             [
+                html.Div(id='initial-message'),
                 # Top left: Timeframe correlations + timeseries dropdown
                 dbc.Col(
                     [
@@ -37,7 +38,7 @@ layout = dbc.Container(
                                             options=timeseries_options,
                                             value=timeseries_options[0]["value"],
                                             clearable=False,
-                                            style={"width": "60%"},
+                                            style={"width": "100%",'margin':'10px'},
                                         ),
                                     ],
                                     style={"display": "flex", "align-items": "center", "margin-bottom": "10px"},
@@ -61,7 +62,7 @@ layout = dbc.Container(
                                             options=timeframe_options,
                                             value=timeframe_options[0]["value"],
                                             clearable=False,
-                                            style={"width": "60%"},
+                                            style={"width": "100%",'margin':'10px'},
                                         ),
                                     ],
                                     style={"display": "flex", "align-items": "center", "margin-bottom": "10px"},
@@ -84,7 +85,7 @@ layout = dbc.Container(
                             [
                                 html.Div(
                                     [
-                                        html.Label("Show Historical Data", style={"margin-right": "10px"}),
+                                        html.Label("Show full history", style={"margin-right": "10px"}),
                                         dbc.Switch(
                                             id="show-historical-switch",
                                             value=True,
@@ -97,7 +98,7 @@ layout = dbc.Container(
                             ]
                         )
                     ],
-                    width=12,
+                    width=6,
                 ),
             ]
         ),
