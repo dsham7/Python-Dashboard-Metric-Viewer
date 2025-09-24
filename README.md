@@ -1,0 +1,3 @@
+# From Beginner to Advanced: Build Multi-Page Time Series Analyses Dashboards in Python with Plotly Dash
+Learning how to build dashboards can feel overwhelming at first—but it doesn’t have to be!
+In this goal-oriented project, we’ll take a progressive approach to building a multi-page dashboard for time series analysis using Plotly Dash and Pandas. Starting with a simple beginner-friendly version (v1), moving through an intermediate stage (v2), and finally reaching an advanced, feature-rich dashboard (v3), you’ll see how each layer of complexity builds on the last. By the end, you’ll not only know how to create powerful dashboards entirely in Python but also understand how to scale them from basic prototypes to professional-grade analytics tools.
