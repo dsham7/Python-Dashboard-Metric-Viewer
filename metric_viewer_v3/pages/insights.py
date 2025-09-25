@@ -3,7 +3,6 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 from callbacks import insights_callbacks
 import plotly.graph_objs as go
-from callbacks import insights_callbacks
 dash.register_page(__name__, path="/insights", title="Insights")
 # Dummy figures
 fig_timeframe_corr = go.Figure()
@@ -38,7 +37,7 @@ layout = dbc.Container(
                                             options=timeseries_options,
                                             value=timeseries_options[0]["value"],
                                             clearable=False,
-                                            style={"width": "100%",'margin':'10px'},
+                                            style={"width": "80%",'margin':'10px'},
                                         ),
                                     ],
                                     style={"display": "flex", "align-items": "center", "margin-bottom": "10px"},
@@ -62,7 +61,7 @@ layout = dbc.Container(
                                             options=timeframe_options,
                                             value=timeframe_options[0]["value"],
                                             clearable=False,
-                                            style={"width": "100%",'margin':'10px'},
+                                            style={"width": "80%",'margin':'10px'},
                                         ),
                                     ],
                                     style={"display": "flex", "align-items": "center", "margin-bottom": "10px"},
@@ -98,7 +97,7 @@ layout = dbc.Container(
                             ]
                         )
                     ],
-                    width=6,
+                    width=12,
                 ),
             ]
         ),
