@@ -71,7 +71,22 @@ def update_timeseries_corr_plot(data, timeframe):
 )
 def update_forecast_plot(data,history_switch):
     if data is None or not isinstance(data, dict) or len(data) == 0:
-        return px.line() # Return an empty figure, or you can return a loading figure
+        placeholder_fig = go.Figure()
+        placeholder_fig.update_layout(
+            title = "Timeseries Forecast",
+            xaxis_title="X-axis",
+            yaxis_title="Y-axis",
+            annotations=[
+                dict(
+                    text="Graph will appear here",
+                    x=0.5, y=0.5,
+                    xref="paper", yref="paper",
+                    showarrow=False,
+                    font=dict(size=16, color="gray")
+                )
+            ]
+        )
+        return placeholder_fig
 
     ts_dict = {}
     forc_dict = {}
